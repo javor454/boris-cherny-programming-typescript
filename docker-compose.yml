@@ -2,10 +2,10 @@
 version: "3.7"
 
 services:
-  app:
-    user: node
-    build:
-      context: .
-    volumes:
-      - .:/usr/src/app/
-      - /usr/src/app/node_modules/
+    app:
+        user: node
+        build:
+            context: .
+        volumes:
+            - .:/usr/src/app/
+            - /usr/src/app/node_modules/

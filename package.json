@@ -1,10 +1,10 @@
 {
-  "name": "boris-cherny-programming-typescript",
-  "version": "1.0.0",
-  "devDependencies": {
-    "typescript": "^5.2.2",
-    "ts-node": "^10.9.1",
-    "eslint": "^8.50.0",
-    "@types/node": "^20.8.0"
-  }
+	"name": "boris-cherny-programming-typescript" ,
+	"version": "1.0.0" ,
+	"devDependencies": {
+		"typescript": "^5.2.2" ,
+		"ts-node": "^10.9.1" ,
+		"eslint": "^8.50.0" ,
+		"@types/node": "^20.8.0"
+	}
 }
