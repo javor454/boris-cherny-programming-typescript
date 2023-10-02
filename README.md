@@ -114,6 +114,11 @@ let a: { [key: string]: string } = {
 
 #### Pole
 
+- dynamická velikost - mohou růst nebo se zmenšovat dle potřeby
+  - může vést k problémům s výkonem pokud často odebírám prvky ze začátku nebo prostředku pole -> v takovém případě je lepší použít **spojový seznam** nebo **Map**
+- iterace - pomocí metod `for`, `forEach`, `map` nebo `filter` je obecně efektivní, avšak používání `for...in` a `for...of` může mít vliv na výkon vzhledem k tomu, že iterují přes **prototype chain** a nenumerické properties
+- hledání - může být ve velkém neseřazeném poli problém, pro rychlejší lookup použít **Set** nebo **Map**
+- https://www.npmjs.com/package/immutable
 - zápis generického pole `T[]` nebo Array<T>
 - BEST PRACTICE: udržovat pole homogenní (stejnorodé) - jinak bude třeba vynaložit více úsilí TS přesvědčit, že použití
   pole je bezpečné
@@ -121,3 +126,25 @@ let a: { [key: string]: string } = {
   typ pole rozšíří o typ vloženého elementu, jakmile pole upustí scope TS mu přiřadí finální typ, který již nejde
   rozšířit
 - test: `make run arrays`
+
+##### Tuples
+
+- subtyp pole s fixní délkou, kde každý prvek má daný typ
+  - `let a: [number] = [1];`
+- podporuje optional elementy (`let optionalTuple: [number, number?];`)
+- podporuje rest elementy - pole s minimálním počtem elementů (`let restTuple: [string, ..string[]]; // min 1 element`)
+- mutující metoda `splice` umožňuje smazat z pole elementy
+- nemutující metoda `concat` umožňuje mergnout 2 a více polí, vrátí nové pole
+- nemutující metoda `slice` umožňuje vybrat subpole pomocí indexu začátečního a konečného elementu, vrátí nové pole
+- podpora readonly pole
+  - `let readonlyArray: readonly number[] = [1, 2, 3];`
+  - `let readonlyArray: ReadonlyArray<string> = [1, 2, 3]`
+  - `let readonlyArray: Readonly<string[]> = [1, 2, 3];`
+  - `let readonlyArray: readonly [number, string] = [1, 'a'];`
+-
+
+## Prototype chain
+- mechanismus, který umožňuje objektům podědit properties a metody jiných objektů
+- každý objekt v JS má interní link na jiný objekt, který je jeho prototyp
+  - tento objekt může mít taky prototyp -> takto objekty tvoří řetězec prototypů, který dosáhne nejvyšší úrovně objektu, kterým je `Object.prototype`
+- když přistupují k property objektu, JS se nejdřív podívá zda tento objekt property nemá, pokud ne podívá se o úroveň výše v řetězci prototypů -> pokud v řetězci nenajde, vrátí `undefined`

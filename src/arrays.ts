@@ -10,7 +10,20 @@ function arrays() {
 		return a;
 	}
 	let pole = buildArray();
-	pole.push(true); // error
+	// pole.push(true); // error
+
+	let optionalTuple: [number, number?][] = [
+		[1, 2],
+		[3],
+	];
+
+	let restTuple: [string, ...string[]] = ['a', 'B', 'c'];
+
+	let d = [1, 2 ,3];
+	d.splice(0, 2)
+	console.log(d); // [3]
+
+	let readonlyArray: Readonly<string[]> = [1, 2, 3];
 }
 
 arrays();
