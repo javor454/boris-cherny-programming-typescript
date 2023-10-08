@@ -3,6 +3,8 @@
 | Datum     | Přečtené stránky |
 |-----------|------------------|
 | 27.9.2023 | 29               |
+| 4.10.2023 | 36               |
+| 8.10.2023 | 47 TODO          |
 
 | Úkoly       | Je hotovo |
 |-------------|-----------|
@@ -148,3 +150,31 @@ let a: { [key: string]: string } = {
 - každý objekt v JS má interní link na jiný objekt, který je jeho prototyp
   - tento objekt může mít taky prototyp -> takto objekty tvoří řetězec prototypů, který dosáhne nejvyšší úrovně objektu, kterým je `Object.prototype`
 - když přistupují k property objektu, JS se nejdřív podívá zda tento objekt property nemá, pokud ne podívá se o úroveň výše v řetězci prototypů -> pokud v řetězci nenajde, vrátí `undefined`
+
+#### `null`
+- chybějící hodnota (snažil jsem se vypočítat ale nastala chyba)
+	- žádoucí používat v tsconfigu `strictNullChecks`
+
+#### `undefined`
+- něco nebylo nadefinované
+
+#### `void`
+- návratový typ - nevracím nic
+
+#### `never`
+- návratový typ - nikdy nevrátím (narazím na chybu, nekonečný cyklus)
+
+#### `enum`
+- výpis hodnot, klíč => hodnota
+- mapují:
+  - string => string
+  - string => number
+- BEST PRACTICE: Klíče i hodnoty by měli být s velkým písmenem na začátku a v jednotném čísle
+- přístup k hodnotám:
+  - Enum.hodnota
+  - Enum['hodnota']
+- umožňuje rozdělit deklaraci, jazyk jí pak mergne
+
+### Funkce
+- nepoužívat `let a = new Function('par', 'return par + 1');`
+  - typem a je `Function` - a je tedy callable (můžu zavolat pomocí a()), má všechny metody Function.prototype ale jeho parametry a návratový typ jsou neotypované

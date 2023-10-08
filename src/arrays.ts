@@ -23,7 +23,7 @@ function arrays() {
 	d.splice(0, 2)
 	console.log(d); // [3]
 
-	let readonlyArray: Readonly<string[]> = [1, 2, 3];
+	let readonlyArray: Readonly<number[]> = [1, 2, 3];
 }
 
 arrays();
