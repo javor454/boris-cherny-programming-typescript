@@ -4,7 +4,7 @@
 |-----------|------------------|
 | 27.9.2023 | 29               |
 | 4.10.2023 | 36               |
-| 8.10.2023 | 47 TODO          |
+| 9.10.2023 | 53               |
 
 | Úkoly       | Je hotovo |
 |-------------|-----------|
@@ -178,3 +178,19 @@ let a: { [key: string]: string } = {
 ### Funkce
 - nepoužívat `let a = new Function('par', 'return par + 1');`
   - typem a je `Function` - a je tedy callable (můžu zavolat pomocí a()), má všechny metody Function.prototype ale jeho parametry a návratový typ jsou neotypované
+- **parametry** jsou součástí deklarace funkce - data která potřebují k provolání
+- **argument** jsou data, se kterými provolávám funkci
+- podpora výchozích a nepovinných hodnot
+- provolání možné pomocí metod `apply`, `call`, `bind` (vrací novou funkci kterou mohu provolat pomocí ())
+- `this` proměnná je definovaná pro každou funkci, má jinou hodnotu podle toho jak provolám funkci
+  - obecně `this` pojme hodnotu na levo od tečky když provolávám funkci
+
+#### Generátory
+- lazy generování hodnot - vypočítají další hodnotu pokud si o ní řeknu
+
+#### Rest parametry
+- arguments - magický objekt zapouzdřující argumenty funkce
+  - umožňuje iterovat nad dynamickým množstvím argumentů
+  - nebezpečné - argumenty jsou v neotypované
+- rest parametr `...numbers: number[]` umožňuje použití dynamického množství argumentů bezpečně
+
